@@ -22,7 +22,6 @@ import {Client , Account, ID} from "appwrite";
             else{
                 return userAcoount;
             }
-
         }
         catch(error){
             throw error;
@@ -36,7 +35,6 @@ import {Client , Account, ID} from "appwrite";
         catch(error){
             throw error;
         }
-
     }
     async getCurrentUser(){
         try {
@@ -47,13 +45,19 @@ import {Client , Account, ID} from "appwrite";
         return null;
     }
 
-
-            
+    async logout(){
+        try{
+            await this.account.deleteSessions();
+        }
+        catch(error){
+            console.log("Appwrite service :: logout :: error", error);
+            throw error;
+        }
     }
+}
+const authService = new AuthService();
+export default authService;
 
-
-    const authService = new AuthService();
-
-    export default authService;
+                     
   
-
+    
