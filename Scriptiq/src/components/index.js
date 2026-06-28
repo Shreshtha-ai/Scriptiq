@@ -2,16 +2,16 @@ import Select from "./Select";
 import Header from "./Header/Header";
 import Footer from "./Footer/Footer";
 import Container from "./container/Container";
-import Logo from "./Logo";
+import Logo from "./logo";
 import LogoutBtn from "./Header/LogoutBtn";
 import RTE from "./RTE";
 import Signup from "./Signup";
-import login from "./login";
+import Login from "./Login";
 import Button from "./Button";
 import PostForm from "./PostForm";
 import PostCard from "./PostCard";
 import AuthLayout from "./AuthLayout";
-import Input from "./Input";
+import Input from "./input";
 export {
     Header,
     Footer,
@@ -20,7 +20,7 @@ export {
     LogoutBtn,
     RTE,
     Signup,
-    login,
+    Login,
     Button,
     PostForm,
     PostCard,

@@ -1,5 +1,5 @@
 import React from 'react'
-import ReactDOM from 'react-dom/client'
+import ReactDOM ,{createRoot} from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
 import { Provider } from 'react-redux'
@@ -44,6 +44,12 @@ const router = createBrowserRouter([
           <AllPosts/>
         </AuthLayout>
       },
+      { 
+        path: "/add-post",
+        element: <AuthLayout authentication>
+          <AddPost/>
+        </AuthLayout>
+      },
       {
         path: "/edit-post/:slug",
         element: <AuthLayout authentication>
@@ -60,9 +66,9 @@ const router = createBrowserRouter([
   }
 ])
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
+  <React.StrictMode>
     <Provider store={store}>
       <RouterProvider router={router}/>
     </Provider>
-  </StrictMode>,
+  </React.StrictMode>,
 )

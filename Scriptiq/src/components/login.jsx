@@ -3,7 +3,9 @@ import {Link, useNavigate} from "react-router-dom"
 import {login as authLogin} from "../store/authSlice"
 import {useDispatch} from "react-redux"
 import {AuthService} from "../appwrite/auth"
-import {Input, Button, Logo} from "../components"
+import Input from './input'
+import Button from './Button'
+import Logo from './logo'
 import { useForm } from "react-hook-form"
 
 function Login(){
@@ -28,9 +30,8 @@ function Login(){
 
 }
 return (
-    <div>
-        className="flex flex-col items-center justify-center h-screen"
-        <div className="w-full max-w-md">
+    <div className="flex flex-col items-center justify-center h-screen p-6">
+        <div className="w-full max-w-md p-6">
             <div className = "mb-2 flex justify-center">
                 <span className = "inline-block w-full max-w-[100px]">
                     <Logo width = "100%" />
