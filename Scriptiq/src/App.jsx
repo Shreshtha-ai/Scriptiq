@@ -3,7 +3,7 @@ import './App.css'
 import { useDispatch } from 'react-redux'
 import { logout, login } from './store/authSlice'
 import authService from './appwrite/auth'
-import { Header, Footer } from './compoenents'
+import { Header, Footer } from './components'
 import { Outlet } from 'react-router-dom'
 
 
