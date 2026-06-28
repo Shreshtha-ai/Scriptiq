@@ -14,12 +14,55 @@ import EditPost from "./pages/EditPost";
 
 import Post from "./pages/Post";
 
-import AllPosts from "./pages/AllPosts";
-
+import AllPosts from "./pages/AllPost";
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <App/>,
+    children: [
+      {
+        path: '/',
+        element: <Home/>
+      },
+      {
+        path: "/login",
+        element: <AuthLayout authentication={false}>
+          <Login/>
+        </AuthLayout>
+      },
+      
+      {
+        path: "/signup",
+        element: <AuthLayout authentication={false}>
+          <Signup/>
+        </AuthLayout>
+      },
+      {
+        path: "/all-posts",
+        element: <AuthLayout authentication>
+          {""}
+          <AllPosts/>
+        </AuthLayout>
+      },
+      {
+        path: "/edit-post/:slug",
+        element: <AuthLayout authentication>
+          <EditPost/>
+        </AuthLayout>
+      },
+      {
+        path: "/post/:slug",
+        element: <AuthLayout authentication>
+          <Post/>
+        </AuthLayout>
+      }
+    ]
+  }
+])
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <Provider store={store}>
-      <App />
+      <RouterProvider router={router}/>
     </Provider>
   </StrictMode>,
 )
