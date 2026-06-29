@@ -6,7 +6,7 @@ import Logo from "./logo";
 import LogoutBtn from "./Header/LogoutBtn";
 import RTE from "./RTE";
 import Signup from "./Signup";
-import Login from "./Login";
+import Login from "./login";
 import Button from "./Button";
 import PostForm from "./PostForm";
 import PostCard from "./PostCard";
