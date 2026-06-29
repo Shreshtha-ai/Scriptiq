@@ -38,6 +38,8 @@ export default function PostForm({ post }) {
 
                 if (dbPost) {
                     navigate(`/post/${dbPost.$id}`);
+                } else {
+                    alert("Failed to update post. Please try again.");
                 }
             } else {
                 const file = await appwriteService.uploadFile(data.image[0]);
@@ -54,6 +56,8 @@ export default function PostForm({ post }) {
 
                     if (dbPost) {
                         navigate(`/post/${dbPost.$id}`);
+                    } else {
+                        alert("Failed to create post. Please try again.");
                     }
                 }
             }
