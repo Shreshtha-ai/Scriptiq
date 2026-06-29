@@ -9,7 +9,7 @@ function PostCard({ $id, title, featuredImage }) {
       <div className='w-full bg-surface-card rounded-xl overflow-hidden border border-gray-100
         shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1'>
         <div className='w-full aspect-video overflow-hidden'>
-          {post.featuredImage && (
+          {featuredImage && (
           <img
             src={appwriteService.getFilePreview(featuredImage)}
             alt={title}
