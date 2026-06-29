@@ -37,22 +37,27 @@ function Header() {
   ]
 
   return (
-    <header className='py-3 shadow-sm bg-white border-b border-gray-100'>
+    <header className='py-4 sticky top-0 z-50 bg-white/80 backdrop-blur-lg border-b border-gray-100 shadow-sm transition-all'>
       <Container>
         <nav className='flex items-center'>
           <div className='mr-4'>
             <Link to="/">
-              <Logo width='120px' />
+              <Logo width='130px' />
             </Link>
           </div>
 
-          <ul className='flex ml-auto items-center gap-1'>
+          <ul className='flex ml-auto items-center gap-2'>
             {navItems.map((item) =>
               item.active ? (
                 <li key={item.name}>
                   <button onClick={() => navigate(item.slug)}
-                    className='px-4 py-2 text-sm font-medium text-dark rounded-lg
-                      transition-colors duration-200 hover:bg-brand/10 hover:text-brand'> 
+                    className={`px-5 py-2.5 text-sm font-medium rounded-full transition-all duration-300
+                      ${
+                        item.name === "Signup" || item.name === "Add Posts"
+                          ? "bg-brand text-white hover:bg-brand-dark shadow-sm hover:shadow-md hover:-translate-y-0.5"
+                          : "text-dark hover:bg-brand/10 hover:text-brand"
+                      }
+                    `}> 
                       {item.name}
                   </button>
                 </li>
