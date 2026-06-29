@@ -210,8 +210,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 * **GitHub:** [@Shreshtha-ai](https://github.com/Shreshtha-ai)
 * **LinkedIn:** [Your LinkedIn Profile](https://www.linkedin.com/in/shreshtha-agarwal-04129a368/)
 
----
 
-> **Built with ❤️ while learning React**
 
 
