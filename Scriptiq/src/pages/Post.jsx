@@ -17,7 +17,11 @@ export default function Post() {
     useEffect(() => {
         if (slug) {
             appwriteService.getPost(slug).then((post) => {
-                if (post) setPost(post);
+                if (post) {
+                    console.log("Post data from Appwrite:", post);
+                    console.log("Image URL:", appwriteService.getFilePreview(post.featuredImage));
+                    setPost(post);
+                }
                 else navigate("/");
             });
         } else navigate("/");
@@ -32,33 +36,34 @@ export default function Post() {
         });
     };
 
-    return post ? (
+   return post ? (
         <div className="py-8">
             <Container>
-                <div className="w-full flex justify-center mb-4 relative border rounded-xl p-2">
+                <div className="w-full flex justify-center mb-6 relative rounded-2xl
+                  overflow-hidden border border-gray-100 shadow-sm">
                     <img
                         src={appwriteService.getFilePreview(post.featuredImage)}
                         alt={post.title}
-                        className="rounded-xl"
+                        className="rounded-2xl max-h-[500px] object-cover"
                     />
-
                     {isAuthor && (
-                        <div className="absolute right-6 top-6">
+                        <div className="absolute right-4 top-4 flex gap-2">
                             <Link to={`/edit-post/${post.$id}`}>
-                                <Button bgColor="bg-green-500" className="mr-3">
+                                <Button bgColor="bg-green-600" className="shadow-sm">
                                     Edit
                                 </Button>
                             </Link>
-                            <Button bgColor="bg-red-500" onClick={deletePost}>
+                            <Button bgColor="bg-red-500" onClick={deletePost}
+                              className="shadow-sm">
                                 Delete
                             </Button>
                         </div>
                     )}
                 </div>
                 <div className="w-full mb-6">
-                    <h1 className="text-2xl font-bold">{post.title}</h1>
+                    <h1 className="text-3xl font-bold text-dark">{post.title}</h1>
                 </div>
-                <div className="browser-css">
+                <div className="prose max-w-none text-dark/85 leading-relaxed">
                     {parse(post.content)}
                 </div>
             </Container>

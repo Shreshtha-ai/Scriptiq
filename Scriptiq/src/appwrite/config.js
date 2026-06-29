@@ -26,7 +26,7 @@ export class Service{
                     content,
                     featuredImage,
                     status,
-                    userId,
+                    userid: userId,
                 }
             )
         }
@@ -125,10 +125,10 @@ export class Service{
     }
 
     getFilePreview(fileId){
-        return this.bucket.getFilePreview(
+        return this.bucket.getFileView(
             conf.appwriteBucketId,
             fileId
-        )
+        ).href || this.bucket.getFileView(conf.appwriteBucketId, fileId);
     }
 
 

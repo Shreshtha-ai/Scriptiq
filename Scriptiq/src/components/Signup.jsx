@@ -35,7 +35,7 @@ function Signup() {
             <div className="w-full max-w-md bg-surface-card rounded-2xl shadow-sm
               border border-gray-100 p-8 transition-shadow duration-300 hover:shadow-md">
                 <div className="mb-4 flex justify-center">
-                    <span className="inline-block w-full max-w-[100px]">
+                    <span className="inline-block w-full max-w-[160px]">
                         <Logo width="100%" />
                     </span>
                 </div>

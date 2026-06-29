@@ -3,7 +3,7 @@ import logoImg from '../Scriptiq_Logo.png'
 
 function Logo({width = '100px'}) {
   return (
-    <img src={logoImg} alt="ScriptIQ" style={{width}} />
+    <img src={logoImg} alt="ScriptIQ" style={{ width, mixBlendMode: 'multiply' }} />
   )
 }
 
