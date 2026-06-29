@@ -42,15 +42,16 @@ export default function PostForm({ post }) {
                     alert("Failed to update post. Please try again.");
                 }
             } else {
-                const file = await appwriteService.uploadFile(data.image[0]);
+                //only if file is there 
+                const file = data.image[0] ? await appwriteService.uploadFile(data.image[0]) : null;
 
-                if (file) {
+               
                     const dbPost = await appwriteService.createPost({
                         title: data.title,
                         slug: data.slug,
                         content: data.content,
                         status: data.status,
-                        featuredImage: file.$id,
+                        featuredImage: file ? file.$id : undefined,
                         userId: userData.$id,
                     });
 
@@ -59,7 +60,7 @@ export default function PostForm({ post }) {
                     } else {
                         alert("Failed to create post. Please try again.");
                     }
-                }
+                
             }
         } catch (error) {
             console.error("PostForm :: submit :: error", error);
@@ -97,7 +98,8 @@ export default function PostForm({ post }) {
                     className="mb-4"
                     {...register("title", { required: true })}
                 />
-                <Input
+                <Input disabled
+
                     label="Slug :"
                     placeholder="Slug"
                     className="mb-4"
@@ -114,7 +116,7 @@ export default function PostForm({ post }) {
                         label="Featured Image :"
                         type="file"
                         accept="image/png, image/jpg, image/jpeg, image/gif"
-                        {...register("image", { required: !post })}
+                        {...register("image")}
                     />
                     {post && (
                         <div className="w-full">

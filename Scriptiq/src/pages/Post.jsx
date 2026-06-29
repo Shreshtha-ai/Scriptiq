@@ -41,11 +41,19 @@ export default function Post() {
             <Container>
                 <div className="w-full flex justify-center mb-6 relative rounded-2xl
                   overflow-hidden border border-gray-100 shadow-sm">
+                    {
+                      post.featuredImage ? (
                     <img
                         src={appwriteService.getFilePreview(post.featuredImage)}
                         alt={post.title}
                         className="rounded-2xl max-h-[500px] object-cover"
                     />
+                    ): (
+                        <div className="w-full h-full flex items-center justify-center">
+                            <span className="text-muted">No image available</span>
+                        </div>
+                    )
+                }
                     {isAuthor && (
                         <div className="absolute right-4 top-4 flex gap-2">
                             <Link to={`/edit-post/${post.$id}`}>
